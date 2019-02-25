@@ -41,10 +41,10 @@
           <a class="nav-link js-scroll-trigger" href="#about">Tarea</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#experience">Algoritmo</a>
+          <a class="nav-link js-scroll-trigger" href="#load">Cargar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="">Cargar</a>
+          <a class="nav-link js-scroll-trigger" href="#experience">Algoritmo</a>
         </li>
       </ul>
     </div>
@@ -82,6 +82,69 @@
 
     <hr class="m-0">
 
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="load">
+      <div class="w-100">
+        <h2 class="mb-5">Cargar</h2>
+<!-- 
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Cargar Grafo</h3>
+            <div class="subheading mb-3">Intelitec Solutions</div>
+            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">March 2013 - Present</span>
+          </div>
+        </div> -->
+
+        <div class="container">
+          <div class="row">
+            <div class="col" style="padding-left: 0">
+              <h3 class="mb-0">Grafo</h3>
+              <div class="input-group">
+
+                  <div class="custom-file">
+                    <input type="file" class="input-default-js" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Seleccionar grafo</label>
+                  </div>
+                </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <!-- <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                  </div>
+                  
+                
+            </div>
+            <div class="col">
+              <h3 class="mb-0">Heurística</h3>
+              <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Seleccionar heurística</label>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                     
+                    <!-- <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                  </div>
+                </div>
+                
+              
+            </div>
+          </div>
+      </div>
+
+    </section>
+
+
+    <hr class="m-0">
+
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
       <div class="w-100">
         //TODO: que sirva
@@ -102,7 +165,14 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
-
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $('input[type="file"]').change(function(e){
+          var fileName = e.target.files[0].name;
+          alert('The file "' + fileName +  '" has been selected.');
+      });
+  });
+</script>
 </body>
 
 </html>
