@@ -1,0 +1,67 @@
+<header>
+    <!--  The Raphael JavaScript library for vector graphics display  -->
+    <script type="text/javascript" src="js/raphael-min.js"></script>
+    <!--  Dracula  -->
+    <!--  An extension of Raphael for connecting shapes -->
+    <script type="text/javascript" src="js/dracula_graffle.js"></script>
+    <!--  Graphs  -->
+    <script type="text/javascript" src="js/dracula_graph.js"></script>
+    <script type="text/javascript" src="js/dracula_algorithms.js"></script>
+    <script type="text/javascript">
+        
+        var redraw;
+        var height = 520;
+        var width = 1020;
+        
+        window.onload = function() {
+            var render = function(r, n) {
+                    var set = r.set().push(
+                        r.rect(n.point[0]-30, n.point[1]-13, 60, 44).attr({"fill": "#eee", r : "30px", "stroke-width" : n.distance == 0 ? "3px" : "1px" })).push(
+                        r.text(n.point[0], n.point[1] + 10, (n.label || n.id)));
+                    return set;
+                };
+
+            
+            var g = new Graph();
+            /* Nodes */
+            g.addNode(0, {label: "New York", render:render});
+            g.addNode(1, {label: "Tel Aviv", render:render});
+            g.addNode(2, {label: "Tokyo", render:render});
+
+            /* connections */
+            g.addEdge(2, 1, {weight:9});
+            g.addEdge(1, 2, {weight:11});
+            g.addEdge(2, 0, {weight:420});
+            g.addEdge(0, 2, {weight:7});
+            
+            var layouter = new Graph.Layout.Spring(g);
+            layouter.layout();
+            var renderer = new Graph.Renderer.Raphael('canvas', g, width, height);
+            
+            //dijkstra(g, g.nodes[1]);
+            for(e in g.edges) {
+                g.edges[e].style.label = g.edges[e].weight;
+                g.edges[e].style.directed = true;
+                
+                if(g.edges[e].target.predecessor === g.edges[e].source || g.edges[e].source.predecessor === g.edges[e].target) {
+                    g.edges[e].style.stroke = "#bfa";
+                    g.edges[e].style.fill = "#56f";
+                } else {
+                    g.edges[e].style.stroke = "#666";
+                }
+            }
+
+            
+            renderer.draw();
+            redraw = function() {
+                layouter.layout();
+                renderer.draw();
+            };
+        };
+        </script>
+    </header>
+    <body>
+        <div id="canvas"></div>
+        Looks ugly? Hit <button id="redraw" onclick="redraw();">redraw</button>!
+    </body>
+        
