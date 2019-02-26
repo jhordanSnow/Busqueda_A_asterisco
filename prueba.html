@@ -1,12 +1,5 @@
 <header>
-    <!--  The Raphael JavaScript library for vector graphics display  -->
-    <script type="text/javascript" src="js/raphael-min.js"></script>
-    <!--  Dracula  -->
-    <!--  An extension of Raphael for connecting shapes -->
-    <script type="text/javascript" src="js/dracula_graffle.js"></script>
-    <!--  Graphs  -->
-    <script type="text/javascript" src="js/dracula_graph.js"></script>
-    <script type="text/javascript" src="js/dracula_algorithms.js"></script>
+    
     <script type="text/javascript">
         
         var redraw;
@@ -23,7 +16,7 @@
 
             
             var g = new Graph();
-            /* Nodes */
+            /* Nodes     */
             g.addNode(0, {label: "New York", render:render});
             g.addNode(1, {label: "Tel Aviv", render:render});
             g.addNode(2, {label: "Tokyo", render:render});
@@ -65,3 +58,5 @@
         Looks ugly? Hit <button id="redraw" onclick="redraw();">redraw</button>!
     </body>
         
+https://github.com/bgrins/javascript-astar
+https://briangrinstead.com/blog/astar-search-algorithm-in-javascript/

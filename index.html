@@ -24,6 +24,21 @@
 </head>
 
 <body id="page-top">
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!--  The Raphael JavaScript library for vector graphics display  -->
+  <script type="text/javascript" src="js/raphael-min.js"></script>
+  
+  <!-- Graph !!!! -->
+  <script type="text/javascript" src="js/dracula_graffle.js"></script>
+  <script type="text/javascript" src="js/dracula_graph.js"></script>
+  <script type="text/javascript" src="js/dracula_algorithms.js"></script>
+  <script type="text/javascript" src="js/Astar.js"></script>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -104,8 +119,8 @@
               <div class="input-group">
 
                   <div class="custom-file">
-                    <input type="file" class="input-default-js" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">Seleccionar grafo</label>
+                    <input type="file" class="input-default-js" id="uploadGraph">
+                    <label class="custom-file-label" for="uploadGraph">Seleccionar grafo</label>
                   </div>
                 </div>
                   <div class="card">
@@ -122,8 +137,8 @@
               <h3 class="mb-0">Heurística</h3>
               <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">Seleccionar heurística</label>
+                    <input type="file" class="custom-file-input" id="uploadHeuristica">
+                    <label class="custom-file-label" for="uploadHeuristica">Seleccionar heurística</label>
                   </div>
                 </div>
                 <div class="card">
@@ -146,9 +161,7 @@
     <hr class="m-0">
 
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
-      <div class="w-100">
-        //TODO: que sirva
-      </div>
+      <div id="canvas" class="w-100"></div>
 
     </section>
 
@@ -156,23 +169,8 @@
 
   </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
   <!-- Custom scripts for this template -->
-  <script src="js/resume.min.js"></script>
-  <script type="text/javascript">
-  $(document).ready(function(){
-      $('input[type="file"]').change(function(e){
-          var fileName = e.target.files[0].name;
-          alert('The file "' + fileName +  '" has been selected.');
-      });
-  });
-</script>
+  <script src="js/resume.js"></script>
 </body>
 
 </html>
